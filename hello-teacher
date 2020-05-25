@@ -24,7 +24,7 @@
 #
 set -eu -o pipefail
 
-# This demonstrates several things:
+# Here we demonstrate several things:
 #
 # - heredoc strings, which are multiline text with variable expansions.
 # - function scoping. The default_greeting variable needs only be defined

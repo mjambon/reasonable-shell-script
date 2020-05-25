@@ -8,8 +8,6 @@
 #
 set -eu -o pipefail
 
-default_greeting="Hello"
-
 usage() {
   cat <<EOF
 Usage: $(basename "$0") [OPTIONS]
@@ -22,6 +20,8 @@ Options:
       Print this error message and exit.
 EOF
 }
+
+default_greeting="Hello"
 
 greeting="$default_greeting"
 while [[ $# -gt 0 ]]; do
