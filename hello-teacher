@@ -1,0 +1,91 @@
+#! /usr/bin/env bash
+#
+# This is a heavily commented template for a clean and modern bash program.
+# It also serves as a demo of essential bash features and good practices.
+#
+# Replace this notice with your own description. Please kindly indicates why
+# you had to create this code and impose the burden of its maintenance
+# to your successors.
+#
+# Requires bash >= 4.3. Upgrade if needed.
+#
+
+# This enables 3 options that will make the program fail when something's
+# wrong. Their use is recommended in all shell scripts.
+#
+# - 'set -e' makes the program fail when a command fails (otherwise the
+#   execution would continue like normally in interactive mode).
+#
+# - 'set -u' makes the program fail during execution when there's an attempt
+#   to dereference an unset variable (otherwise, it expands to nothing).
+#
+# - '-o pipefail' makes a pipeline 'a | b | c' fail if any of a, b, or c fails
+#   (otherwise its exit status is the exit status of c).
+#
+set -eu -o pipefail
+
+# This demonstrates several things:
+#
+# - heredoc strings, which are multiline text with variable expansions.
+# - function scoping. The default_greeting variable needs only be defined
+#   at the time the function is called.
+# - capture of the ouput of external commands. Here, 'basename' extracts the
+#   last component of the path of this program, identified by $0.
+#
+usage() {
+  cat <<EOF
+Usage: $(basename "$0") [OPTIONS]
+Print a greeting message.
+
+Options:
+  --greeting MSG
+      Use another greeting message than '$default_greeting'.
+  --help
+      Print this error message and exit.
+EOF
+}
+
+# The double-quotes are not necessary here because the string doesn't contain
+# a space. It's ok though, and makes modifications easier in the hands
+# of non-experts.
+#
+default_greeting="Hello"
+
+# Consume the command line arguments. Each call to shift eliminates argument $1
+# and the remaining arguments are shifted to the left. $0 remains. The number
+# of arguments is counter starting with $1 and is identified by $#. It is
+# decremented with each call to shift.
+#
+greeting="$default_greeting"
+while [[ $# -gt 0 ]]; do
+
+  # In doubt, always use double-quotes around variable
+  # expansions: "$1" "$whatever". It is necessary in many contexts, and most
+  # users don't know when. Without double-quotes, $whatever means
+  # 'split the string at delimiters which by default are whitespace'.
+  #
+  case "$1" in
+    --greeting)
+      greeting="$2"
+      shift
+      ;;
+    --help)
+      usage
+      exit 0
+      ;;
+  esac
+  shift
+done
+
+set_username() {
+  username="stranger"
+  # Test if a variable is set. The recommended way to to make this work
+  # with bash versions before 4.3 is [[ -z ${USER+x} ]].
+  #
+  if [[ -v USER ]]; then
+    username="$USER"
+  fi
+}
+
+set_username
+echo "$greeting, $username."

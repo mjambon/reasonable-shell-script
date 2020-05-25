@@ -1,0 +1,49 @@
+#! /usr/bin/env bash
+#
+# I'm a template for a clean and modern bash program.
+# I also serve as a demo of essential bash features and good practices.
+# Replace this notice with your own description.
+#
+# Requires bash >= 4.3.
+#
+set -eu -o pipefail
+
+default_greeting="Hello"
+
+usage() {
+  cat <<EOF
+Usage: $(basename "$0") [OPTIONS]
+Print a greeting message.
+
+Options:
+  --greeting MSG
+      Use another greeting message than '$default_greeting'.
+  --help
+      Print this error message and exit.
+EOF
+}
+
+greeting="$default_greeting"
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --greeting)
+      greeting="$2"
+      shift
+      ;;
+    --help)
+      usage
+      exit 0
+      ;;
+  esac
+  shift
+done
+
+set_username() {
+  username="stranger"
+  if [[ -v USER ]]; then
+    username="$USER"
+  fi
+}
+
+set_username
+echo "$greeting, $username."
