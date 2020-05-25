@@ -85,7 +85,7 @@ done
 
 set_username() {
   username="stranger"
-  # Test if a variable is set. The recommended way to to make this work
+  # Test if a variable is set. The recommended way to make this work
   # with bash versions before 4.3 is [[ -z ${USER+x} ]].
   #
   if [[ -v USER ]]; then
