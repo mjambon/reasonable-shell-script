@@ -19,7 +19,6 @@ Short advice for successful shell scripting:
 
 Common conventions that minimize annoyances:
 
-* Executable files have no `.sh` or `.bash` extension e.g. `hello`, not
-  `hello.sh`.
-* Environment variables use all-caps e.g. `"$USER"`. Ordinary shell
-  variables use lowercase e.g. `"$name"`.
+* Executable files should have no extension. It's `hello`, not `hello.sh`.
+* Environment variables should use all-caps e.g. `"$USER"`. Ordinary shell
+  variables should use lowercase e.g. `"$name"`.
