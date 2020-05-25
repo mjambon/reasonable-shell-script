@@ -13,7 +13,7 @@ Short advice for successful shell scripting:
 3. Use `"$thing"`, not `$thing` unless you want to split the string.
 4. Learn the [scoping rules](https://twitter.com/mjambon/status/1264718107861413889)
    and how to use functions.
-5. Learn [how to use arrays](https://www.gnu.org/software/bash/manual/bash.html#Arrays)
+5. Learn [how to use arrays](https://www.gnu.org/software/bash/manual/bash.html#Arrays).
 6. Use [ShellCheck](https://shellcheck.net). It's helpful for
    learning, not just for going after production code.
 
