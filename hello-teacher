@@ -29,7 +29,7 @@ set -eu -o pipefail
 # - heredoc strings, which are multiline text with variable expansions.
 # - function scoping. The default_greeting variable needs only be defined
 #   at the time the function is called.
-# - capture of the ouput of external commands. Here, 'basename' extracts the
+# - capture of the output of external commands. Here, 'basename' extracts the
 #   last component of the path of this program, identified by $0.
 #
 usage() {
