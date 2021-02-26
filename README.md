@@ -19,8 +19,8 @@ Short advice for successful shell scripting:
 
 Common conventions that minimize annoyances:
 
-* Executable files should have no extension because they're a command with a meaningful,
-  convenient name for the **user**. It's `hello`, not `hello.sh`. The implementation
-  language is irrelevant to the primary user, who is the caller of the command.
+* Executable files should have no extension because they're a command and it should have
+  a name that's meaningful to the **user**. It's `hello`, not `hello.sh`. The implementation
+  language is irrelevant to the caller of the command.
 * Environment variables should use all-caps e.g. `"$USER"`. Ordinary shell
   variables should use lowercase e.g. `"$name"`.
