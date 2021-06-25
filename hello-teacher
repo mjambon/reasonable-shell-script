@@ -74,10 +74,10 @@ while [[ $# -gt 0 ]]; do
       exit 0
       ;;
     *)
-      # Take care to write the error message to stderr (the '2' in '2>&1')
+      # Take care to write the error message to stderr (the '2' in '>&2')
       # and exit with a non-zero status.
       #
-      echo "Unsupported argument '$1'. Try --help." 2>&1
+      echo "Unsupported argument '$1'. Try --help." >&2
       exit 1
   esac
   shift
