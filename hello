@@ -35,7 +35,7 @@ while [[ $# -gt 0 ]]; do
       exit 0
       ;;
     *)
-      echo "Unsupported argument '$1'. Try --help." 2>&1
+      echo "Unsupported argument '$1'. Try --help." 1>&2
       exit 1
   esac
   shift
